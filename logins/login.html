@@ -28,22 +28,29 @@
                 <img src="instagram-icon.png" alt="Instagram">
             </a>
         </div>
+        <button id="play-audio">Play Audio</button>
     </div>
     <div id="end-text">The end is here</div>
 
-    <!-- Audio player -->
-    <audio id="audio" preload="auto" tabindex="0" controls>
+    <audio id="audio" preload="auto">
         <source src="https://files.offshore.cat/eroiCkhR.mp3" data-track-number="1" />
         <source src="https://files.offshore.cat/BfuC46mO.mp3" data-track-number="2" />
         <source src="https://files.offshore.cat/FocBDQdI.mp3" data-track-number="3" />
         <source src="https://files.offshore.cat/OqXLyQOl.mp3" data-track-number="4" />
     </audio>
 
-    <!-- JavaScript to trigger auto play -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var audio = document.getElementById("audio");
-            audio.play();
+            var playButton = document.getElementById("play-audio");
+
+            playButton.addEventListener("click", function() {
+                audio.volume = 0.5;
+                audio.play().then(() => {}).catch(error => {
+                    console.error("Error playing audio:", error);
+                });
+                playButton.style.display = "none";
+            });
         });
     </script>
 </body>
