@@ -6,104 +6,8 @@
     <title>nish4eva/fi4sc0</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: transparent;
-            cursor: url('cursors/normal.crs'), auto;
-        }
-
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        .icon-container {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .icon-container:hover {
-            transform: scale(1.1);
-            cursor: url('cursors/help.ani'), auto;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .social-icons a {
-            width: 100px;
-            height: 100px;
-            margin: 0 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .social-icons a img {
-            width: 100%;
-            height: 100%;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.1);
-        }
-
-        #title-text {
-            position: absolute;
-            top: -100px;
-            font-family: Helvetica, sans-serif;
-            font-size: 72px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px #ffcc00;
-            animation: colorChange 5s infinite, vcrEffect 1s infinite;
-        }
-
-        #end-text {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            font-family: Helvetica, sans-serif;
-            font-size: 24px;
-            font-weight: bold;
-            color: transparent;
-            -webkit-text-stroke: 1px #ffcc00;
-            animation: colorChange 5s infinite;
-        }
-
-        @keyframes colorChange {
-            0% { color: #ff0000; }
-            50% { color: #00ff00; }
-            100% { color: #0000ff; }
-        }
-
-        @keyframes vcrEffect {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
+        #audio {
+            display: none;
         }
     </style>
 </head>
@@ -123,14 +27,24 @@
             <a href="https://www.instagram.com/f14sco0/" target="_blank">
                 <img src="instagram-icon.png" alt="Instagram">
             </a>
-            <audio id="audio" preload="auto" tabindex="0" controls>
-                <source src="https://files.offshore.cat/eroiCkhR.mp3" data-track-number="1" />
-                <source src="https://files.offshore.cat/BfuC46mO.mp3" data-track-number="2" />
-                <source src="https://files.offshore.cat/FocBDQdI.mp3" data-track-number="3" />
-                <source src="https://files.offshore.cat/OqXLyQOl.mp3" data-track-number="4" />
-            </audio>
         </div>
     </div>
     <div id="end-text">The end is here</div>
+
+    <!-- Audio player -->
+    <audio id="audio" preload="auto" tabindex="0" controls>
+        <source src="https://files.offshore.cat/eroiCkhR.mp3" data-track-number="1" />
+        <source src="https://files.offshore.cat/BfuC46mO.mp3" data-track-number="2" />
+        <source src="https://files.offshore.cat/FocBDQdI.mp3" data-track-number="3" />
+        <source src="https://files.offshore.cat/OqXLyQOl.mp3" data-track-number="4" />
+    </audio>
+
+    <!-- JavaScript to trigger auto play -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        });
+    </script>
 </body>
 </html>
