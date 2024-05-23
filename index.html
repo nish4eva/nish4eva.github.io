@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nish's Dungeon</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="members/stylesheets/fonts.css">
     <link rel="icon" href="nish.png">
-    <link href="VCR_OSD_MONO_1.001.ttf" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'VCR OSD Mono';
+            src: url('VCR_OSD_MONO_1.001.ttf') format('truetype');
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
+
 <body>
     <header>
         <h1 class="title">nish's personal website lol</h1>
@@ -21,6 +29,9 @@
         <div class="snowflake"></div>
         <div class="snowflake"></div>
     </div>
+    <section class="login">
+        <h2><a href="#" class="login-link" id="login-link">login</a></h2>
+    </section>
     <section class="contact">
         <h2>reach me</h2>
         <p class="social-icons">
@@ -35,10 +46,26 @@
     <footer>
         property of nish
     </footer>
-    <audio autoplay>
-        <source src="background.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+    <audio id="audio" src="https://files.offshore.cat/eroiCkhR.mp3" autoplay style="display:none"></audio>
+
+    <div id="bios-screen" class="bios-screen" style="display:none">
+        <div class="bios-content">
+            <h1>BIOS</h1>
+            <div id="bios-typing"></div>
+        </div>
+    </div>
+
+    <div id="loading-screen" class="loading-screen" style="display:none">
+        <div class="loading-content">
+            <div class="loading-logo-container">
+                <img src="logo.gif" alt="Windows Logo" class="loading-logo">
+            </div>
+            <img src="loading_bar.gif" alt="Loading Bar" class="loading-bar">
+            <h1>Loading Vault</h1>
+            <p class="loading-subtext">you reached kinda far didnt u</p>
+        </div>
+    </div>
+
     <script>
         var typed = new Typed('#typing', {
             strings: ["more coming soon", "bush did 9/11", "why are u here mang", "took me like 3 hours to spill my creative juices with dis one", "thanks to ishan"],
@@ -47,6 +74,28 @@
             loop: true,
             showCursor: false,
         });
+
+        document.getElementById('login-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('bios-screen').style.display = 'flex';
+            setTimeout(function() {
+                document.getElementById('bios-screen').style.display = 'none';
+                document.getElementById('loading-screen').style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = "logins/login.html";
+                }, 3400);
+            }, 2000);
+
+            var biosTyped = new Typed('#bios-typing', {
+                strings: ["[OK] Loading vault page....", "[OK] Totally not inspired....", "[OK] Took me an hour to make all this..."],
+                typeSpeed: 50,
+                backSpeed: 20,
+                loop: false,
+                showCursor: false,
+            });
+        });
     </script>
+
 </body>
+
 </html>

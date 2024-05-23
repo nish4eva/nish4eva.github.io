@@ -5,7 +5,7 @@ body, h1, p {
 
 body {
     font-family: 'Helvetica', sans-serif;
-    background: #000;
+    background: #0d0d0d;
     overflow-x: hidden;
     position: relative;
     margin: 0;
@@ -69,6 +69,25 @@ header {
     }
 }
 
+.login {
+    text-align: center;
+}
+
+.login-link {
+    color: #F99BF9;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'VCR OSD Mono', monospace;
+    border: 2px solid #F99BF9;
+    padding: 10px 20px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.login-link:hover {
+    color: #fff;
+    background-color: #F99BF9;
+}
+
 .contact {
     text-align: center;
     margin-bottom: 50px;
@@ -97,13 +116,18 @@ link[rel="icon"] {
     border-radius: 50%;
 }
 
-.typewrite {
+.typing-container {
     overflow: hidden;
-    border-right: .15em solid orange;
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
-    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+.typing-container::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    animation: none;
 }
 
 @keyframes typing {
@@ -114,4 +138,70 @@ link[rel="icon"] {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: orange; }
+}
+
+.bios-screen {
+    background: #0d0d0d;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bios-content {
+    text-align: center;
+}
+
+.loading-screen {
+    background: #0d0d0d;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-logo-container {
+    position: relative;
+}
+
+.loading-logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.illuminating-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(0,128,0,1) 100%);
+    animation: illuminating 2s infinite alternate;
+}
+
+.loading-bar {
+    width: 364px;
+    height: 54px;
+    margin-top:20px;
+
+}
+
+.loading-subtext {
+    color: #D22B2B;
 }

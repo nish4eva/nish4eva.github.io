@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nish4eva/fi4sc0</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            cursor: url('cursors/normal.crs'), auto;
+        }
+
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .icon-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .icon-container:hover {
+            transform: scale(1.1);
+            cursor: url('cursors/help.ani'), auto;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 100px;
+            height: 100px;
+            margin: 0 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        #title-text {
+            position: absolute;
+            top: -100px;
+            font-family: Helvetica, sans-serif;
+            font-size: 72px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px #ffcc00;
+            animation: colorChange 5s infinite, vcrEffect 1s infinite;
+        }
+
+        #end-text {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-family: Helvetica, sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 1px #ffcc00;
+            animation: colorChange 5s infinite;
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            50% { color: #00ff00; }
+            100% { color: #0000ff; }
+        }
+
+        @keyframes vcrEffect {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <video id="background-video" autoplay muted loop>
+        <source src="background_video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <div id="title-text">f14sc0</div>
+        <div class="icon-container">
+            <img src="icon1.gif" alt="Icon 1" class="center">
+        </div>
+        <div class="social-icons">
+            <a href="https://open.spotify.com/user/k587v049q8g1nfi58bu8zqxlp?si=1f720e7a04674934" target="_blank">
+                <img src="spotify-icon.png" alt="Spotify">
+            </a>
+            <a href="https://www.instagram.com/f14sco0/" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+    </div>
+    <div id="end-text">The end is here</div>
+</body>
+</html>
