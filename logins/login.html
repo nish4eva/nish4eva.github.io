@@ -24,11 +24,9 @@
             <a href="https://open.spotify.com/user/k587v049q8g1nfi58bu8zqxlp?si=1f720e7a04674934" target="_blank">
                 <img src="spotify-icon.png" alt="Spotify">
             </a>
-            <a href="https://www.instagram.com/f14sco0/" target="_blank">
-                <img src="instagram-icon.png" alt="Instagram">
-            </a>
+            
         </div>
-        <button id="play-audio">Play Audio</button>
+        <button id="play-audio" style="display: none;">Play Audio</button>
     </div>
     <div id="end-text">The end is here</div>
 
@@ -42,15 +40,35 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var audio = document.getElementById("audio");
-            var playButton = document.getElementById("play-audio");
+            var sources = audio.getElementsByTagName('source');
+            var currentTrack = 0;
 
-            playButton.addEventListener("click", function() {
+            function playNextTrack() {
+                currentTrack = (currentTrack + 1) % sources.length;
+                audio.src = sources[currentTrack].src;
+                audio.play();
+            }
+
+            audio.addEventListener('ended', playNextTrack);
+
+            function playAudio() {
                 audio.volume = 0.5;
-                audio.play().then(() => {}).catch(error => {
+                audio.play().then(() => {
+                    console.log("Audio started playing automatically.");
+                }).catch(error => {
                     console.error("Error playing audio:", error);
                 });
-                playButton.style.display = "none";
-            });
+            }
+
+            // Try to play audio automatically
+            playAudio();
+
+            // Fallback for mobile browsers with autoplay restrictions
+            document.body.addEventListener('touchstart', function() {
+                if (audio.paused) {
+                    playAudio();
+                }
+            }, { once: true });
         });
     </script>
 </body>
