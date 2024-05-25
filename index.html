@@ -75,26 +75,28 @@
             showCursor: false,
         });
 
-        document.getElementById('login-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.getElementById('bios-screen').style.display = 'flex';
+        
+    document.getElementById('login-link').addEventListener('click', function(event) {
+        event.preventDefault();
+        document.getElementById('bios-screen').style.display = 'flex';
+        setTimeout(function() {
+            document.getElementById('bios-screen').style.display = 'none';
+            document.getElementById('loading-screen').style.display = 'flex';
             setTimeout(function() {
-                document.getElementById('bios-screen').style.display = 'none';
-                document.getElementById('loading-screen').style.display = 'flex';
-                setTimeout(function() {
-                    window.location.href = "logins/login.html";
-                }, 3400);
-            }, 2000);
+                window.location.href = "logins/nish";
+            }, 3400);
+        }, 2000);
 
-            var biosTyped = new Typed('#bios-typing', {
-                strings: ["[OK] Loading vault page....", "[OK] Totally not inspired....", "[OK] Took me an hour to make all this..."],
-                typeSpeed: 50,
-                backSpeed: 20,
-                loop: false,
-                showCursor: false,
-            });
+        var biosTyped = new Typed('#bios-typing', {
+            strings: ["[OK] Loading vault page....", "[OK] Totally not inspired....", "[OK] Took me an hour to make all this..."],
+            typeSpeed: 50,
+            backSpeed: 20,
+            loop: false,
+            showCursor: false,
         });
-    </script>
+    });
+</script>
+
 
 </body>
 

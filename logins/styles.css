@@ -8,6 +8,11 @@ body, html {
     cursor: url('cursors/normal.crs'), auto;
 }
 
+@font-face {
+    font-family: 'VCR OSD Mono';
+    src: url('fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
 #background-video {
     position: fixed;
     top: 0;
@@ -19,10 +24,26 @@ body, html {
 }
 
 .container {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: relative;
+    height: 100;
+}
+
+.floating-text {
+    position: absolute;
+    top: 0%;
+    left: 26.87%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'VCR OSD Mono', sans-serif;
+    font-size: 72px;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px #ffcc00;
+    animation: colorChange 5s infinite, vcrEffect 1s infinite;
     margin-top: 20px;
 }
 
@@ -31,6 +52,7 @@ body, html {
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
+    margin-top: 70px;
     margin-bottom: 20px;
     transition: transform 0.3s ease-in-out;
 }
@@ -47,11 +69,19 @@ body, html {
     margin-top: 20px;
 }
 
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
 .social-icons a {
     width: 100px;
     height: 100px;
-    margin: 0 20px;
+    margin: 0 10px;
     transition: transform 0.3s ease-in-out;
+    margin-top: 10px;
 }
 
 .social-icons a img {
@@ -66,7 +96,7 @@ body, html {
 #title-text {
     position: absolute;
     top: -100px;
-    font-family: Helvetica, sans-serif;
+    font-family: 'VCR OSD Mono', sans-serif;
     font-size: 72px;
     font-weight: bold;
     color: transparent;
@@ -96,4 +126,96 @@ body, html {
     0% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
     100% { transform: translateY(0); }
+}
+
+.songtitle {
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 200%;
+    color: white;
+    -webkit-filter: drop-shadow(0px 0px 1px #525252);
+    filter: drop-shadow(0px 0px 1px #525252);
+}
+
+#musicplayer {
+    margin-top: 20px;
+    background-image: url('https://i.pinimg.com/originals/91/5f/cc/915fcca34bb9fedcfc67659116d5ede3.gif');
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: stroking 1s infinite alternate;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controls td {
+    padding: 0 25px;
+}
+
+.playpause-track, .prev-track, .next-track {
+    font-size: 2em;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: calc(100% - 30px);
+    background-color: transparent;
+}
+
+.seeking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.seeking .seek_slider {
+    width: calc(100% - 60px);
+}
+
+.seeking input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #555;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+}
+
+.seeking input[type=range]:hover {
+    opacity: 1;
+}
+
+.seeking input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.seeking input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 50%;
 }
