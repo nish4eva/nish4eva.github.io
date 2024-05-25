@@ -76,16 +76,19 @@
         });
 
         
-    document.getElementById('login-link').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('bios-screen').style.display = 'flex';
+        document.getElementById('login-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.getElementById('bios-screen').style.display = 'flex';
+    setTimeout(function() {
+        document.getElementById('bios-screen').style.display = 'none';
+        document.getElementById('loading-screen').style.display = 'flex';
         setTimeout(function() {
-            document.getElementById('bios-screen').style.display = 'none';
-            document.getElementById('loading-screen').style.display = 'flex';
-            setTimeout(function() {
-                window.location.href = "logins/nish.html";
-            }, 3400);
-        }, 2000);
+            // Remove the .html extension from the URL before redirecting
+            window.location.href = "logins/nish";
+        }, 3400);
+    }, 2000);
+});
+
 
         var biosTyped = new Typed('#bios-typing', {
             strings: ["[OK] Loading vault page....", "[OK] Totally not inspired....", "[OK] Took me an hour to make all this..."],
@@ -94,7 +97,7 @@
             loop: false,
             showCursor: false,
         });
-    });
+    
 </script>
 
 
