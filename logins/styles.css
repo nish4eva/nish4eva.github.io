@@ -138,7 +138,7 @@ body, html {
 
 #musicplayer {
     margin-top: 20px;
-    background-image: url('https://i.pinimg.com/originals/91/5f/cc/915fcca34bb9fedcfc67659116d5ede3.gif');
+    background-image: url('bkg.gif'); /* Updated URL */
     background-size: cover;
     padding: 20px;
     border-radius: 10px;
@@ -151,6 +151,7 @@ body, html {
     animation: stroking 1s infinite alternate;
     overflow: hidden;
 }
+
 
 .controls {
     display: flex;
