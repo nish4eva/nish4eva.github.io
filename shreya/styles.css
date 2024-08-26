@@ -1,0 +1,71 @@
+body {
+    background-color: black;
+    margin: 0;
+    font-family: 'VSD Mono', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centered-image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 30px 20px white;
+}
+
+.messages {
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+.message {
+    position: absolute;
+    width: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+.ring {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid white;
+    margin: 100px auto;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.fireworks {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: url('fireworks.gif') no-repeat center center;
+    background-size: cover;
+    opacity: 0;
+}
+
+.hidden {
+    opacity: 0;
+}
