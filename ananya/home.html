@@ -12,9 +12,9 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      font-family: 'Press Start 2P', cursive;
+      font-family: Helvetica, sans-serif;
       background-color: black;
-      cursor: url('retro-cursor.png'), auto;
+      cursor: url('retro-cursor-small.png'), auto;
     }
 
     #loading-screen {
@@ -34,7 +34,7 @@
     }
 
     #loading-screen video {
-      width: 300px;
+      width: 375px;
       margin-top: 20px;
     }
 
@@ -102,15 +102,51 @@
         opacity: 1;
       }
     }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid lime;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .15em;
+      animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+      width: 22ch;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: lime; }
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: repeating-linear-gradient(
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 999;
+    }
   </style>
 </head>
 
 <body>
   <div id="loading-screen">
-    <div>logging into ananya portfolio...</div>
-    <video autoplay muted src="loading.mp4"></video>
-    <div style="margin-top: 20px; font-size: 10px;">created for free by swagat :P</div>
+    <video autoplay muted src="loading.mp4" style="width: 375px;"></video>
+    <div class="typewriter">logging into ananya portfolio...</div>
   </div>
+  <div style="position: absolute; bottom: 10px; left: 10px; font-size: 10px; color: lime;">created for free by swagat :P</div>
 
   <div id="desktop">
     <div class="top-bar">
@@ -132,16 +168,31 @@
     </div>
 
     <div id="photo" class="window">
+      <div style="display: flex; gap: 5px; padding: 5px;">
+        <div style="width:12px; height:12px; background:red; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:yellow; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:green; border-radius:50%;"></div>
+      </div>
       <h3>Photography Examples</h3>
-      <p>Images go here.</p>
+      <p>fotus cmen sun.</p>
     </div>
     <div id="about" class="window">
+      <div style="display: flex; gap: 5px; padding: 5px;">
+        <div style="width:12px; height:12px; background:red; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:yellow; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:green; border-radius:50%;"></div>
+      </div>
       <h3>About Me</h3>
-      <p>Details about Ananya.</p>
+      <p>abt nariyal.</p>
     </div>
     <div id="misc" class="window">
+      <div style="display: flex; gap: 5px; padding: 5px;">
+        <div style="width:12px; height:12px; background:red; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:yellow; border-radius:50%;"></div>
+        <div style="width:12px; height:12px; background:green; border-radius:50%;"></div>
+      </div>
       <h3>Miscellaneous</h3>
-      <p>Fun extras and other things.</p>
+      <p>guys be like</p>
     </div>
   </div>
 
@@ -150,13 +201,13 @@
       setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
         document.getElementById("desktop").style.display = "block";
-      }, 4000); // change depending on loading.mp4 duration
+      }, 3000); 
     };
 
     function openWindow(id) {
       const win = document.getElementById(id);
       win.style.display = "block";
-      win.style.zIndex = Date.now(); // stack on top
+      win.style.zIndex = Date.now(); 
     }
   </script>
 </body>
